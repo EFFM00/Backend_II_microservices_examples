@@ -1,0 +1,33 @@
+spring:
+  application:
+    name: api-eurekaserver-ms
+
+server:
+  port: 8761
+
+eureka:
+  instance:
+    hostname: localhost
+  client:
+    registerWithEureka: false
+    fetchRegistry: false
+    serviceUrl:
+      defaultZone: http://${eureka.instance.hostname}:${server.port}/eureka/
+
+info:
+  application:
+    name: api-eurekaserver-ms
+    description: "Get fast and easy access to the world's most accurate
+  weather, ocean, environment and climate data for every location on
+  earth"
+    version: 1.0.0
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "serviceregistry, health, info"
+
+  info:
+    env:
+      enabled: true
